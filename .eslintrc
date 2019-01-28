@@ -1,0 +1,10 @@
+{
+  "extends": "react-app",
+  "rules": {
+    "no-console": 2,
+    "indent": 1,
+    "editor.detectIndentation": false,
+    "prettier.disableLanguages": ["js"],
+    "prettier.eslintIntegration": true
+  }
+}
