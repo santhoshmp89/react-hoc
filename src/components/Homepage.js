@@ -16,9 +16,9 @@ const InFo = props => {
     return (
         <Fragment>
             <div onMouseOver={props.mouseOver} onMouseOut={props.mouseOut}>?</div>
-            {props.hovering && <Tooltip title="homepage" />}
+            {props.hovering && <Tooltip title={props.title} />}
         </Fragment>
     );
 };
 
-const InFoHOC = ToolTipHOC (InFo);
+const InFoHOC = ToolTipHOC (InFo, 'homepage');
