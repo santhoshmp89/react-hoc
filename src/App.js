@@ -5,6 +5,8 @@ import LocalStorageHOC from './components/LocalStorageHOC';
 import HomePage from './components/Homepage';
 import './App.css';
 
+import CommentBox from './components/CommentBox';
+
 const menus = [
     {
         name: 'Home',
