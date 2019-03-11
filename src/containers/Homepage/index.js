@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 
 import {addComment} from '../../actions';
 import {bindActionCreators} from 'redux';
-import {Route, Switch, withRouter} from 'react-router-dom';
+import {Route, Switch, withRouter, Redirect} from 'react-router-dom';
 import CommentFullList from '../../components/CommentFullList';
 
 class Homepage extends Component {
@@ -23,11 +23,15 @@ class Homepage extends Component {
 
                   <Switch>
                       <Route
-                          path="/signin"
+                          path="/addPost"
                           exact
-                          render={props => (
-                              <CommentBox {...props} addComment={this.props.addComment} />
-                          )}
+                          render={props =>
+                              !this.props.auth
+                                  ? <Redirect to="/" />
+                                  : <CommentBox
+                                      {...props}
+                                      addComment={this.props.addComment}
+                                  />}
                       />
 
                       <Route
@@ -60,6 +64,7 @@ class Homepage extends Component {
 
 const mapStateToProps = state => ({
     addCommentReducer: state.addCommentReducer,
+    auth: state.signReducer,
 });
 
 const mapDispachToProps = dispatch =>
