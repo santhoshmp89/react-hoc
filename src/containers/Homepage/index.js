@@ -9,6 +9,7 @@ import {addComment} from '../../actions';
 import {bindActionCreators} from 'redux';
 import {Route, Switch, withRouter, Redirect} from 'react-router-dom';
 import CommentFullList from '../../components/CommentFullList';
+import SlideShow from '../../components/SlideShow/SlideShow';
 
 class Homepage extends Component {
   state = {};
@@ -52,6 +53,16 @@ class Homepage extends Component {
                                   {...props}
                                   commentsLists={this.props.addCommentReducer}
                               />
+                          )}
+                      />
+
+                      <Route
+                          path="/slide-show"
+                          render={props => (
+                              <SlideShow>
+                                  <img src="https://www.ilovepets.com/wp-content/uploads/2018/01/persian-cat.jpg" />
+                                  <img src="https://parmashelter.org/wp-content/uploads/2013/09/cats.jpg" />
+                              </SlideShow>
                           )}
                       />
                   </Switch>
